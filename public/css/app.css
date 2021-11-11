@@ -1,0 +1,8 @@
+.cart-picture {
+    text-align: center;
+}
+
+.cart-picture img {
+    object-fit: cover;
+    height: 100px;
+}
