@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211110120312 extends AbstractMigration
+final class Version20211111200056 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,6 +20,10 @@ final class Version20211110120312 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('CREATE TABLE comment (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, trick_id INTEGER NOT NULL, content CLOB NOT NULL, created_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
+        )');
+        $this->addSql('CREATE INDEX IDX_9474526CA76ED395 ON comment (user_id)');
+        $this->addSql('CREATE INDEX IDX_9474526CB281BE2E ON comment (trick_id)');
         $this->addSql('CREATE TABLE "group" (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_6DC044C5989D9B62 ON "group" (slug)');
         $this->addSql('CREATE TABLE picture (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, trick_id INTEGER NOT NULL, path VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL)');
@@ -44,6 +48,7 @@ final class Version20211110120312 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('DROP TABLE comment');
         $this->addSql('DROP TABLE "group"');
         $this->addSql('DROP TABLE picture');
         $this->addSql('DROP TABLE reset_password_request');

@@ -1,4 +1,4 @@
-<div class="trick-card col d-flex align-items-stretch">
+<div class="{{ loop.index > 10 ? 'd-none ' }}trick-card col d-flex align-items-stretch">
     <div class="card mb-4 w-100">
         {% set picture = trick.pictures.first %}
         {% if picture %}

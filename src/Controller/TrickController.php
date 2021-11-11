@@ -6,6 +6,7 @@ use App\Entity\Trick;
 use App\Form\TrickType;
 use App\Repository\TrickRepository;
 use App\Service\FileManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +41,7 @@ class TrickController extends AbstractController
 
     /**
      * @Route("/new", name="trick_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request): Response
     {
@@ -74,6 +76,7 @@ class TrickController extends AbstractController
 
     /**
      * @Route("/{id<\d+>}/edit", name="trick_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Trick $trick): Response
     {
@@ -98,6 +101,7 @@ class TrickController extends AbstractController
 
     /**
      * @Route("/{id<\d+>}", name="trick_delete", methods={"POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function delete(Request $request, Trick $trick): Response
     {
