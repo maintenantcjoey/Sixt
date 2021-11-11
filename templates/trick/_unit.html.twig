@@ -1,0 +1,26 @@
+<div class="trick-card col d-flex align-items-stretch">
+    <div class="card mb-4 w-100">
+        {% set picture = trick.pictures.first %}
+        {% if picture %}
+            <a class="cart-picture" href="{{ path('trick_show', {trick_group_slug: trick.trickGroup.slug, slug: trick.slug}) }}">
+                <img src="{{ asset('images/' ~ picture.path) }}" alt="Image de {{ trick.name }}">
+            </a>
+        {% endif %}
+        <div class="card-body p-0 d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-start">
+                <h2 class="card-title h5 flex-grow-1 p-2 mb-1">
+                    <a href="{{ path('trick_show', {trick_group_slug: trick.trickGroup.slug, slug: trick.slug}) }}" title="{{ trick.name }}">{{ trick.name }}</a>
+                </h2>
+                {% if app.user %}
+                    <a class="btn btn-primary me-1 mt-1" href="{{ path('trick_edit', {id: trick.id}) }}" title="Edit the trick {{ trick.name }}">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    {{ include('trick/_delete_form.html.twig') }}
+                {% endif %}
+            </div>
+            <div class="card-footer ">
+                <p>{{ trick.trickGroup }}</p>
+            </div>
+        </div>
+    </div>
+</div>
