@@ -1,25 +1,31 @@
-<div class="{{ loop.index > 10 ? 'd-none ' }}trick-card col d-flex align-items-stretch">
-    <div class="card mb-4 w-100">
-        {% set picture = trick.pictures.first %}
-        {% if picture %}
-            <a class="cart-picture" href="{{ path('trick_show', {trick_group_slug: trick.trickGroup.slug, slug: trick.slug}) }}">
-                <img src="{{ asset('images/' ~ picture.path) }}" alt="Image de {{ trick.name }}">
-            </a>
-        {% endif %}
-        <div class="card-body p-0 d-flex flex-column justify-content-between">
-            <div class="d-flex align-items-start">
-                <h2 class="card-title h5 flex-grow-1 p-2 mb-1">
-                    <a href="{{ path('trick_show', {trick_group_slug: trick.trickGroup.slug, slug: trick.slug}) }}" title="{{ trick.name }}">{{ trick.name }}</a>
-                </h2>
-                {% if app.user %}
-                    <a class="btn btn-primary me-1 mt-1" href="{{ path('trick_edit', {id: trick.id}) }}" title="Edit the trick {{ trick.name }}">
-                        <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    {{ include('trick/_delete_form.html.twig') }}
+<div class="container-fluid">
+    <div class="{{ loop.index > 10 ? 'd-none ' }} row row-cols-1 row-cols-md-2 g-4  justify-content-center">
+        <div class="col">
+            <div class="card border-primary mb-3">
+                {% set picture = trick.pictures.first %}
+                {% if picture %}
+                <img src="{{ asset('images/' ~ picture.path) }}" class="card-img-top p-2" alt="alt="Image de {{ trick.name }}">
                 {% endif %}
-            </div>
-            <div class="card-footer ">
-                <p>{{ trick.trickGroup }}</p>
+                <div class="card-body">
+                    {% if app.user %}<div class="row justify-conte-center">{% endif %}
+                    <h5 class="card-title {% if app.user %} col-6 {% endif %}"><a href="{{ path('trick_show', {trick_group_slug: trick.trickGroup.slug, slug: trick.slug}) }}" title="{{ trick.name }}">{{ trick.name }}</a></h5>
+                    {% if app.user %}
+                        <div class="col-2">
+                            <a class="btn btn-primary me-1 mt-1" href="{{ path('trick_edit', {id: trick.id}) }}" title="Modifier: {{ trick.name }}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </div>
+                        <div class="col-2">    
+                            <a class="" href="{{ path('trick_delete', {id: trick.id}) }}" title="Supprimer: {{ trick.name }}">
+                                {{ include('trick/_delete_form.html.twig') }}
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="card-footer">
+                        <p class="card-text">{{ trick.trickGroup }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
