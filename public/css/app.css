@@ -6,3 +6,19 @@
     object-fit: cover;
     height: 100px;
 }
+
+a{
+    text-decoration: none;
+    color: #4682B4;
+    font-weight: bold;
+}
+
+h1{
+    font-weight: bold;
+    color: #4682B4;
+    text-align: center;
+}
+
+#nav-item{
+    color: white;
+}
