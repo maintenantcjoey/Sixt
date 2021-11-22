@@ -9,13 +9,13 @@
                 <div class="container h-100">
                     {% if app.user %}
                         <div class="d-flex justify-content-end">
-                            <a href="{{ path('trick_edit', {'id': trick.id}) }}">edit</a>
+                            <a class="btn btn-primary me-1 mt-1" href="{{ path('trick_edit', {'id': trick.id}) }}"><i class="fas fa-pencil-alt"></i></a>
                             {{ include('trick/_delete_form.html.twig') }}
                         </div>
                     {% endif %}
                     <div class="row h-100 align-items-center">
                         <div class="col-12 text-center">
-                            <h1 class="font-weight-bold text-uppercase" style="color: #fea;">
+                            <h1 id="trickName">
                                 {{ trick.name }}
                             </h1>
                         </div>
@@ -23,17 +23,17 @@
                 </div>
             </header>
         {% endif %}
-        <div class="d-flex">
+        <div class="d-flex mt-3">
             {% for picture in trick.pictures %}
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{ asset('images/' ~ picture.path) }}" alt="Card image cap">
                 </div>
             {% endfor %}
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-3">
             {{ trick.description }}
         </div>
-        <div class="d-flex">
+        <div class="d-flex mt-3">
             <span class="badge rounded-pill bg-secondary">{{ trick.trickGroup }}</span>
             <span class="badge rounded-pill bg-secondary">{{ trick.createdAt | date('d/m/Y H:i:s') }}</span>
             <span class="badge rounded-pill bg-secondary">{{ trick.updatedAt | date('d/m/Y H:i:s') }}</span>
@@ -48,10 +48,10 @@
             </div>
             <div class="list-comments">
                 {% for comment in trick.comments %}
-                    <div>
+                    <div class="border mb-2 p-2">
                         <p>{{ comment.content }}</p>
-                        <span>Posted by : {{ comment.user.name }}</span>
-                        <span>{{ comment.trick.createdAt | date('d/m/Y H:i:s') }}</span>
+                        <span class="comName">Posté par : {{ comment.user.name }}</span>
+                        <span class="comName">{{ comment.trick.createdAt | date('d/m/Y H:i:s') }}</span>
                     </div>
                 {% else %}
                     <p>No comments yet</p>
