@@ -4,7 +4,12 @@
 
 {% block body %}
 
-      <h1 class="mb-5">Des infos sur le snow? Bienvenue!</h1>
+    <h1 class="mb-5">Des infos sur le snow? Bienvenue!</h1>
+
+    {% if app.user %}
+      <h2>Votre compte</h2>
+      <h3 class="mb-2">Commentez, créer</h3>
+    {% endif %}
 
     {{ render(path('trick_index')) }}
     
