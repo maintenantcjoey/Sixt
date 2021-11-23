@@ -3,9 +3,40 @@
 {% block title %}Edit Trick{% endblock %}
 
 {% block body %}
-    <h1>Edit Trick</h1>
+    <h1>Edition du Trick</h1>
 
+    <div class="row">
+        {% if trick.pictures is not empty %}
+            <header class="m-0 w-100" style="height: 100vh; min-height: 500px; background-image: url('{{ asset('images/' ~ trick.pictures.last.path) }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
+                <div class="container h-100">
+                    {% if app.user %}
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary me-1 mt-1" href="{{ path('trick_edit', {'id': trick.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                            {{ include('trick/_delete_form.html.twig') }}
+                        </div>
+                    {% endif %}
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 text-center">
+                            <h1 id="trickName">
+                                {{ trick.name }}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endif %}
+        <div class="d-flex mt-3 mb-3">
+            {% for picture in trick.pictures %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('images/' ~ picture.path) }}" alt="Card image cap">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
     {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('home') }}">back to list</a>
+    <div class="d-flex justify-content-end mt-2 mb-3">
+        <a href="{{ path('home') }}">Retour à la liste</a>
+    </div>
 {% endblock %}

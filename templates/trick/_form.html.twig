@@ -1,16 +1,8 @@
 {{ form_start(form, {'attr': {'id': 'trick'}}) }}
-
-    <div class="form-group row">
-        {{ form_widget(form.name, {'attr': {'form': 'trick', class: 'form-control'}}) }}
-    </div>
-    <div class="form-group row">
-        {{ form_widget(form.description, {'attr': {'form': 'trick', class: 'form-control'}}) }}
-    </div>
-    <div class="form-group row">
-        {{ form_widget(form.trickGroup, {'attr': {'form': 'trick', class: 'form-control'}}) }}
-    </div>
+    
     <div class="medias">
         {% set picturesPrototype %}
+        
             <li id="picture___name__">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_picture___name__">
                     <i class="fas fa-pencil-alt"></i>
@@ -41,8 +33,6 @@
                 </div>
             </li>
         {% endset %}
-
-        <button type="button" data-counter="{{ form.pictures|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ picturesPrototype|e('html_attr') }}" data-type="picture">Add picture</button>
 
         <ul class="picture">
             {% for picture in form.pictures %}
@@ -77,10 +67,29 @@
                 </li>
             {% endfor %}
         </ul>
+        <div class="d-flex justify-content-center">
+            <button type="button" data-counter="{{ form.pictures|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ picturesPrototype|e('html_attr') }}" data-type="picture">Add picture</button>
+        </div>
     </div>
 
-    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <div class="col-10">
+            <div class="form-group row">
+                {{ form_widget(form.name, {'attr': {'form': 'trick', class: 'form-control'}}) }}
+            </div>
+            <div class="form-group row">
+                {{ form_widget(form.description, {'attr': {'form': 'trick', class: 'form-control'}}) }}
+            </div>
+            <div class="form-group row">
+                {{ form_widget(form.trickGroup, {'attr': {'form': 'trick', class: 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+    </div>
     {{ form_widget(form._token) }}
 {{ form_end(form, {'render_rest': false}) }}
+
 
 <script src="{{ asset('js/collection.js') }}"></script>
