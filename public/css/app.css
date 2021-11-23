@@ -33,3 +33,12 @@ h1, h2, h3{
 .comName{
     color: #4682B4;
 }
+
+#connect{
+    font-size: 15px;
+    color: #4682B4;
+}
+
+ul{
+    list-style-type:none;
+}
