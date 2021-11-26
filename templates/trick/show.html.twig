@@ -30,6 +30,13 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="d-flex mt-3">
+            {% for video in trick.videos %}
+                <div class="card" style="width: 18rem;">
+                    {{ video.path }}
+                </div>
+            {% endfor %}
+        </div>
         <div class="d-flex justify-content-center mt-3">
             {{ trick.description }}
         </div>

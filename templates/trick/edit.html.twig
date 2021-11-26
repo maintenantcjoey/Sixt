@@ -25,13 +25,6 @@
                 </div>
             </header>
         {% endif %}
-        <div class="d-flex mt-3 mb-3">
-            {% for picture in trick.pictures %}
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('images/' ~ picture.path) }}" alt="Card image cap">
-                </div>
-            {% endfor %}
-        </div>
     </div>
     
     {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
