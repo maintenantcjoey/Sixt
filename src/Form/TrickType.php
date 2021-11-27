@@ -34,7 +34,8 @@ class TrickType extends AbstractType
                 'entry_type' => PictureType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
+                'delete_empty' => true
             ])
         ;
     }

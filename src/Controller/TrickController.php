@@ -85,6 +85,7 @@ class TrickController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->handlePictures($form->get('pictures'), true);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('trick_show', [

@@ -14,6 +14,6 @@ $(function () {
 
     $(document.body).on('click', '.on-remove', function (e) {
         e.preventDefault();
-        $(this).parent().remove();
+        $(this).parent().parent().remove();
     })
 })
