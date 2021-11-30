@@ -13,32 +13,80 @@
 
 a{
     text-decoration: none;
-    color: #4682B4;
+    color: #008cba;
     font-weight: bold;
 }
 
 h1, h2, h3{
     font-weight: bold;
-    color: #4682B4;
+    color: #008cba;
     text-align: center;
 }
 
 #trickName{
     font-weight: 100px;
     color: white;
-    background-color: #4682B4;
+    background-color: #008cba;
     text-transform: uppercase;
 }
 
 .comName{
-    color: #4682B4;
+    color: #008cba;
 }
 
 #connect{
     font-size: 15px;
-    color: #4682B4;
+    color: #008cba;
 }
 
 ul{
     list-style-type:none;
+}
+
+.image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+iframe{
+    width:100%;
+    height: 100%;
+}
+
+.bar{
+    width: 200px;
+    height: 25px;
+    position: relative;
+    background: #008cba;
+    font-size: 15px;
+}
+
+.bar:after{
+    content: "chargement...";
+    font-family: Verdana;
+    color: #008cba;
+    position: absolute;
+    left: 24%;
+    top: 140%;
+}
+
+.bar .sphere{
+    display:block;
+    width: 24px;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    -webkit-animation: slide 1.75s infinite ease-in-out alternate;
+    animation: slide 1.75s infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes slide{
+    to { margin-left: 90%;}
+}
+
+#def{
+    display: none;
 }

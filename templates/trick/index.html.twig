@@ -1,3 +1,4 @@
+<div class="col" id="def">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-between mt-3">
     {% for trick in tricks %}
         {{ include('trick/_unit.html.twig', {trick: trick}) }}
@@ -7,3 +8,19 @@
         </div>
     {% endfor %}
 </div>
+</div>
+
+<div class="d-flex justify-content-center mt-3 mb-5">
+    <div class="bar">
+        <span class="sphere"></span>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".bar").fadeOut(4000, function(){
+                $("#def").fadeIn(500);
+            });
+        })
+    </script>
