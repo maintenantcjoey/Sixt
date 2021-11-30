@@ -1,3 +1,4 @@
+<div class="col" id="def">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-between mt-3">
     {% for trick in tricks %}
         {{ include('trick/_unit.html.twig', {trick: trick}) }}
@@ -6,6 +7,20 @@
             No tricks
         </div>
     {% endfor %}
-
-    <div id="navigation_up_down_6427"><noscript>Javascript is disable - <a href="http://www.supportduweb.com/">http://www.supportduweb.com/</a> - <a href="http://www.supportduweb.com/generateur-boutons-navigation-haut-bas-scroll-defilement-racourcis-page-monter-descendre-up-down.html">Générateur de boutons de navigation</a></noscript><script type="text/javascript" src="http://services.supportduweb.com/navigation_up_down/4-6427-right.js"></script></div>
 </div>
+</div>
+
+<div class="d-flex justify-content-center mt-3 mb-5">
+    <div class="bar">
+        <span class="sphere"></span>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".bar").fadeOut(4000, function(){
+                $("#def").fadeIn(500);
+            });
+        })
+    </script>
