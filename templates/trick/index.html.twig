@@ -1,3 +1,13 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-between mt-3">
+    {% for trick in tricks %}
+        {{ include('trick/_unit.html.twig', {trick: trick}) }}
+    {% else %}
+        <div>
+            No tricks
+        </div>
+    {% endfor %}
+</div>
+
 <div class="col" id="def">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-between mt-3">
     {% for trick in tricks %}
@@ -16,11 +26,10 @@
     </div>
 </div>
 
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".bar").fadeOut(4000, function(){
-                $("#def").fadeIn(500);
-            });
-        })
-    </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".bar").fadeOut(4000, function(){
+            $("#def").fadeIn(4000);
+        });
+    })
+</script>

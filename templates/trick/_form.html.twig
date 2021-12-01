@@ -4,17 +4,17 @@
         {% set picturesPrototype %}
         
             <li id="picture___name__">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_picture___name__">
+                <button type="button" class="btn btn-primary mt-5 ms-3" data-bs-toggle="modal" data-bs-target="#edit_picture___name__">
                     <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button type="button" class="btn btn-danger on-remove">
+                <button type="button" class="btn btn-danger on-remove mt-5">
                     <i class="fas fa-trash"></i>
                 </button>
                 <div class="modal fade" id="edit_picture___name__" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
+                                <h5 class="modal-title">Ajouter une image</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true"></span>
                                 </button>
@@ -47,7 +47,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
+                                    <h5 class="modal-title">Ajouter une image</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true"></span>
                                     </button>
@@ -66,7 +66,7 @@
             {% endfor %}
         </ul>
         <div class="d-flex justify-content-center">
-            <button type="button" data-counter="{{ form.pictures|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ picturesPrototype|e('html_attr') }}" data-type="picture">Add picture</button>
+            <button type="button" data-counter="{{ form.pictures|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ picturesPrototype|e('html_attr') }}" data-type="picture">Ajouter une image</button>
         </div>
     </div>
 
@@ -74,17 +74,17 @@
     {% set videosPrototype %}
 
         <li id="video___name__">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_video___name__">
+            <button type="button" class="btn btn-primary mt-5 ms-3" data-bs-toggle="modal" data-bs-target="#edit_video___name__">
                 <i class="fas fa-pencil-alt"></i>
             </button>
-            <button type="button" class="btn btn-danger on-remove">
+            <button type="button" class="btn btn-danger on-remove mt-5">
                 <i class="fas fa-trash"></i>
             </button>
             <div class="modal fade" id="edit_video___name__" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">Ajouter une video</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -105,19 +105,26 @@
     <ul class="video d-flex">
         {% for video in form.videos %}
             <li id="picture_{{ video.vars.id }}">
-                <div class="mt-3 p-5 video" style="background-image: url({{ asset('images/' ~ video.vars.value.path) }});">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_video_{{ video.vars.id }}">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger on-remove">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                <div class="container">
+                    {% for video in trick.videos %}
+                        <div class="card" style="width: 18rem;">
+                            <iframe src="{{ video.path }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    {% endfor %}
+                    <div class="">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_video_{{ video.vars.id }}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger on-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="modal fade" id="edit_video_{{ video.vars.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Edit Video</h5>
+                                <h5 class="modal-title">Editer une video</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true"></span>
                                 </button>
@@ -136,7 +143,7 @@
         {% endfor %}
     </ul>
     <div class="d-flex justify-content-center">
-        <button type="button" data-counter="{{ form.videos|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ videosPrototype|e('html_attr') }}" data-type="picture">Add video</button>
+        <button type="button" data-counter="{{ form.videos|length }}" class="add_item_link btn btn-outline-primary" data-prototype="{{ videosPrototype|e('html_attr') }}" data-type="picture">Ajouter une video</button>
     </div>
 </div>
 
