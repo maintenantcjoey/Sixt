@@ -106,19 +106,15 @@
         {% for video in form.videos %}
             <li id="picture_{{ video.vars.id }}">
                 <div class="container">
-                    {% for video in trick.videos %}
-                        <div class="card" style="width: 18rem;">
-                            <iframe src="{{ video.path }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    {% endfor %}
-                    <div class="">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_video_{{ video.vars.id }}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger on-remove">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                    <div class="card" style="width: 18rem;">
+                        <iframe src="{{ video.vars.value.path }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_video_{{ video.vars.id }}">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger on-remove">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
                 <div class="modal fade" id="edit_video_{{ video.vars.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
