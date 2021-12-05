@@ -5,7 +5,7 @@
 
 ## Pour commencer
 
-Lire les Diagrammes UML dans le dossier Google Drive: (https://drive.google.com/drive/folders/1cNwiM2BJG9xTkSUHLmZ6HqDdcc_XTlUD?usp=sharing),
+Diagrammes UML dans le dossier Google Drive: (https://drive.google.com/drive/folders/1cNwiM2BJG9xTkSUHLmZ6HqDdcc_XTlUD?usp=sharing),
 le résultat codacy y est également disponible, ainsi qu'un jeu de donnée initale.
 
 ### Pré-requis
